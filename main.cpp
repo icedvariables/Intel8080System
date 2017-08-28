@@ -4,9 +4,10 @@
 
 int main(int argc, char* argv[]) {
 	Memory m;
-	m.writeTwoBytes(0, 1000);
+	m.stackPush(1000);
+	m.stackPush(100);
 
-	std::cout << (int)m.readTwoBytes(0) << "\n";
+	std::cout << (int)m.stackPop() << "\n" << (int)m.stackPop() << "\n";
 
 	return 0;
 }

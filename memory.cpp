@@ -1,5 +1,22 @@
 #include "memory.h"
 
+/*
+ * Push a 16 bit value onto the stack.
+ */
+void Memory::stackPush(uint16_t value) {
+	stackPointer -= 2;
+	writeTwoBytes(stackPointer, value);
+}
+
+/*
+ * Pop a 16 bit value off the stack.
+ */
+uint16_t Memory::stackPop() {
+	uint16_t value = readTwoBytes(stackPointer);
+	stackPointer += 2;
+	return value;
+}
+
 uint8_t Memory::readByte(int addr) {
 	return memory[addr];
 }
