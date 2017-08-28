@@ -1,13 +1,17 @@
 #include <iostream>
+#include <fstream>
 #include <stdint.h>
-#include "memory.h"
+#include <string>
+#include "intel8080.h"
 
 int main(int argc, char* argv[]) {
-	Memory m;
-	m.stackPush(1000);
-	m.stackPush(100);
+	Intel8080 i8080;
 
-	std::cout << (int)m.stackPop() << "\n" << (int)m.stackPop() << "\n";
+	if(argc > 1) {
+		std::string filename = argv[1];
+
+		std::cout << "Loading file: " << filename << "\n";
+	}
 
 	return 0;
 }

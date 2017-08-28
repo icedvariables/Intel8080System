@@ -7,8 +7,10 @@
 
 class Intel8080 {
 public:
-
+	void loadProgram(uint8_t program[]);
+	void run();
 private:
+	bool running = false;
 	Registers registers;
 	Memory memory;
 };
