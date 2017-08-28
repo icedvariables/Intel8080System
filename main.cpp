@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdint.h>
-#include "registers.h"
+#include "memory.h"
 
 int main(int argc, char* argv[]) {
-	Registers r;
-	r.set16(REG_A, 0xFFF);
+	Memory m;
+	m.writeTwoBytes(0, 1000);
 
-	std::cout << (int)r.get8(0) << "\n";
+	std::cout << (int)m.readTwoBytes(0) << "\n";
 
 	return 0;
 }
